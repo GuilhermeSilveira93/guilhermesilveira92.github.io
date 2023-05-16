@@ -197,7 +197,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '14/05/2023 12:43:18',
     quemAbriu: '90015118 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'Q3215',
@@ -205,7 +205,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '14/05/2023 22:50:26',
     quemAbriu: '91384313 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'Q2556',
@@ -213,7 +213,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '15/05/2023 07:10:12',
     quemAbriu: '30056948 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'Q1570',
@@ -221,7 +221,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '15/05/2023 08:38:58',
     quemAbriu: '22 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'Q2559',
@@ -229,7 +229,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '26/04/2023 17:16:37',
     quemAbriu: '2503607 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'P233',
@@ -237,7 +237,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '27/04/2023 08:59:25',
     quemAbriu: '30044932 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'Q1568',
@@ -245,7 +245,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '27/04/2023 14:59:15',
     quemAbriu: '90015118 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'P228',
@@ -253,7 +253,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '27/04/2023 15:34:47',
     quemAbriu: '91384313 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
   {
     Frota: 'Q2555',
@@ -261,7 +261,7 @@ export const manutencoes = [{
     tipoManutencao: 'Manutenções em aberto',
     data: '02/05/2023 09:52:27',
     quemAbriu: '30056948 - CRACHA',
-    pds: 'Iniciar PDS'
+    pds: 'PDS'
   },
 ]
 export const inspecaoQualidadeServico = [
