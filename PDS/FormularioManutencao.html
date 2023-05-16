@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="./js/formularioManutencao.js" type="module"></script>
+  <link rel="stylesheet" href="./style/style.css">
+  <title>Pedido de Serviços - PDS</title>
+</head>
+
+<body>
+  <main>
+    <div id="header">
+      <h1>Pedido de Serviço - PDS</h1>
+      <fieldset>
+        <legend>Configurações da Manutenção</legend>
+        <div id="form">
+          <div class="linhadiv">
+            <label for="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">CONTROLADOR DE CARGAS
+              : Controlador Nome</label><br>
+          </div>
+          <div class="linhadiv">
+            <label for="operadorTPA" name="operadorTPA" id="operadorTPA">OPERADOR TPA
+              : 25964 - Manutenção</label>
+
+            <label for="portoCel" name="portoCel" id="portoCel">PORTOCEL
+              : 63259 - Portocel Manutenção</label>
+
+            <label for="jsl" name="jsl" id="jsl">JSL
+              : JSL 24582</label><br>
+          </div>
+          <div class="linhadiv">
+            <label for="cracha" name="cracha" id="cracha">CRACHÁ : 174025</label>
+
+            <label for="Frota" name="Frota" id="Frota">FROTA: 3682</label>
+
+            <label for="Horimetro" name="Horimetro" id="Horimetro">HORÍMETRO
+              : 3524</label>
+
+            <label for="Data" name="Data" id="Data">DATA: 10/05/2023 13:23</label>
+          </div>
+        </div>
+      </fieldset>
+      <details>
+        <summary>Exibir detalhes</summary>
+        <div id="tipoIntervencao">
+          <table border="1">
+            <thead>
+              <tr>
+                <th>
+                  <h3>Codigo</h3>
+                </th>
+                <th>
+                  <h3>Tipo Intervenção</h3>
+                </th>
+                <th>
+                  <h3>Codigo</h3>
+                </th>
+                <th>
+                  <h3>Tipo Intervenção</h3>
+                </th>
+                <th>
+                  <h3>Codigo</h3>
+                </th>
+                <th>
+                  <h3>Tipo Intervenção</h3>
+                </th>
+              </tr>
+
+            </thead>
+            <tbody id="formularioOperador">
+            </tbody>
+          </table>
+        </div>
+        <div id="anotacoes">
+          <h3>Serviços a Executar</h3>
+          <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Autem soluta sit doloribus ab, eos velit
+            provident tempora. Amet commodi eligendi nobis excepturi illum repellat aliquam quam dolorum! Veniam,
+            aliquid at.</p>
+        </div>
+      </details>
+    </div>
+    <div class="divbody">
+      <h3>Serviços Executados</h3>
+      <textarea name="servicoesExecutados" id="servicoesExecutados" cols="30" rows="10" style="resize: none"></textarea>
+    </div>
+    <div class="divbody">
+      <main>
+        <header>
+          <h3>Inspeção de Qualidade do Serviço</h3>
+        </header>
+        <table border="1">
+          <thead>
+            <tr>
+              <th class="blocos">
+                <h3>C</h3>
+              </th>
+              <th class="blocos">
+                <h3>NC</h3>
+              </th>
+              <th class="blocos">
+                <h3>NA</h3>
+              </th>
+              <th>
+                <h3>ITENS</h3>
+              </th>
+              <th>
+                <h3 class="blocos">C</h3>
+              </th>
+              <th>
+                <h3 class="blocos">NC</h3>
+              </th>
+              <th>
+                <h3 class="blocos">NA</h3>
+              </th>
+              <th>
+                <h3>ITENS</h3>
+              </th>
+              <th>
+                <h3 class="blocos">C</h3>
+              </th>
+              <th>
+                <h3 class="blocos">NC</h3>
+              </th>
+              <th>
+                <h3 class="blocos">NA</h3>
+              </th>
+              <th>
+                <h3 class="blocos">ITENS</h3>
+              </th>
+            </tr>
+
+          </thead>
+          <tbody id="formularioManutencao">
+          </tbody>
+        </table>
+        <table border="1">
+          <tbody>
+            <tr>
+              <td>
+                <p><strong>LEGENDAS: <u>C</u></strong> - Conforme / <strong><u>NC</u></strong> - Não Conforme /
+                  <strong><u>NA</u></strong> - Não Aplicado</p>
+                <p>NOTA: Em caso de não Conformidade, obrigatório abertura do novo PDS com descrição do seriço a
+                  executar, anexado ao atual e retornar para manutenção</p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>EQUIPAMENTO LIBERADO CONFORME REQUISITOS DA NORMA REGULAMENTADORA 12 (NR-12)
+                  <span style="margin-left: 50px;">
+                    <input type="radio" name="nr12" id="nr12Sim" value="SIM">
+                    <label for="nr12Sim">SIM</label>
+                    <input type="radio" name="nr12" id="nr12Nao" value="NAO">
+                    <label for="nr12Nao">NÃO</label>
+                  </span>
+                </p>
+              </td>
+            </tr>
+            <tr>
+              <td>
+                <p>APÓS VERIFICAÇÃO DOS ITENS DE SEGURANÇA, EQUIPAMENTO ENCONTRA-SE:
+                  <span style="margin-left: 142px;">
+                    <input type="radio" name="liberacao" id="eqLiberado" value="SIM">
+                    <label for="eqLiberado">LIBERADO</label>
+                    <input type="radio" name="liberacao" id="eqNaoLiberado" value="NAO">
+                    <label for="eqNaoLiberado">NÃO LIBERADO</label>
+                  </span>
+                </p>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </main>
+      <button type="submit">Enviar</button>
+    </div>
+  </main>
+</body>
+</html>
