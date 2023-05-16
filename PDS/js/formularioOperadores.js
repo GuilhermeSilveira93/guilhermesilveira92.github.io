@@ -4,6 +4,13 @@ import {
 let divTipoIntervencao = document.querySelector('tbody')
 let tr = document.createElement('tr')
 
+const labelCracha = document.querySelector('#cracha')
+labelCracha.innerText = `Crachá : ${sessionStorage.getItem('cracha')}`
+const labelFrota = document.querySelector('#Frota')
+labelFrota.innerText = `Frota : ${sessionStorage.getItem('frota')}`
+const labelData = document.querySelector('#Data')
+labelData.innerText = `Data : ${sessionStorage.getItem('data')}`
+
 tiposIntervencao.forEach((valores, index) => {
   tr = document.createElement('tr')
   tr.setAttribute('class', 'linhas')
@@ -48,9 +55,9 @@ tiposIntervencao.forEach((valores, index) => {
           checkbox.append(valores.itens)
           tdTipoIntervencao.append(checkbox)
         }
-        
+
         tdCodigo.append(valores.codigo)
-        
+
         tdTipoIntervencao.append(checkboxLabel)
         valor.appendChild(tdCodigo)
         valor.appendChild(tdTipoIntervencao)

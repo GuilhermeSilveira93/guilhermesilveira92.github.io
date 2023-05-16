@@ -196,63 +196,72 @@ export const manutencoes = [{
     tipoMaquina: 'Empilhadeira 16t',
     tipoManutencao: 'Manutenções em aberto',
     data: '14/05/2023 12:43:18',
-    quemAbriu: '90015118 - CRACHA'
+    quemAbriu: '90015118 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'Q3215',
     tipoMaquina: 'Empilhadeira 7t',
     tipoManutencao: 'Manutenções em aberto',
     data: '14/05/2023 22:50:26',
-    quemAbriu: '91384313 - CRACHA'
+    quemAbriu: '91384313 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'Q2556',
     tipoMaquina: 'Empilhadeira 16t',
     tipoManutencao: 'Manutenções em aberto',
     data: '15/05/2023 07:10:12',
-    quemAbriu: '30056948 - CRACHA'
+    quemAbriu: '30056948 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'Q1570',
     tipoMaquina: 'Empilhadeira 16t',
     tipoManutencao: 'Manutenções em aberto',
     data: '15/05/2023 08:38:58',
-    quemAbriu: '22 - CRACHA'
+    quemAbriu: '22 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'Q2559',
     tipoMaquina: 'Empilhadeira 7t',
     tipoManutencao: 'Manutenções em aberto',
     data: '26/04/2023 17:16:37',
-    quemAbriu: '2503607 - CRACHA'
+    quemAbriu: '2503607 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'P233',
     tipoMaquina: 'Empilhadeira 7t',
     tipoManutencao: 'Manutenções em aberto',
     data: '27/04/2023 08:59:25',
-    quemAbriu: '30044932 - CRACHA'
+    quemAbriu: '30044932 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'Q1568',
     tipoMaquina: 'Empilhadeira 16t',
     tipoManutencao: 'Manutenções em aberto',
     data: '27/04/2023 14:59:15',
-    quemAbriu: '90015118 - CRACHA'
+    quemAbriu: '90015118 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'P228',
     tipoMaquina: 'Empilhadeira 16t',
     tipoManutencao: 'Manutenções em aberto',
     data: '27/04/2023 15:34:47',
-    quemAbriu: '91384313 - CRACHA'
+    quemAbriu: '91384313 - CRACHA',
+    pds: 'Iniciar PDS'
   },
   {
     Frota: 'Q2555',
     tipoMaquina: 'Empilhadeira 16t',
     tipoManutencao: 'Manutenções em aberto',
     data: '02/05/2023 09:52:27',
-    quemAbriu: '30056948 - CRACHA'
+    quemAbriu: '30056948 - CRACHA',
+    pds: 'Iniciar PDS'
   },
 ]
 export const inspecaoQualidadeServico = [
