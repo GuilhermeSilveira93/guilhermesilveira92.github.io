@@ -48,11 +48,11 @@ export const tiposIntervencao = [{
   },
   {
     codigo: 13,
-    itens: 'DESLOCAMENT OLENTO'
+    itens: 'DESLOCAMENTO LENTO'
   },
   {
     codigo: 14,
-    itens: 'PROBLEMA MECANICO TORRE'
+    itens: 'PROBLEMA MECÂNICO TORRE'
   },
   {
     codigo: 15,
@@ -96,15 +96,15 @@ export const tiposIntervencao = [{
   },
   {
     codigo: 25,
-    itens: 'FALHA ELETRICA MOTOR'
+    itens: 'FALHA ELÉTRICA MOTOR'
   },
   {
     codigo: 26,
-    itens: 'FALHA ELETRICA TRANSMISSÃO'
+    itens: 'FALHA ELÉTRICA TRANSMISSÃO'
   },
   {
     codigo: 27,
-    itens: 'VAZAMENTOS HIDRAULICO'
+    itens: 'VAZAMENTOS HIDRÁULICO'
   },
   {
     codigo: 28,
@@ -128,7 +128,7 @@ export const tiposIntervencao = [{
   },
   {
     codigo: 33,
-    itens: 'FALTA DE COMBUSTIVEL'
+    itens: 'FALTA DE COMBUSTÍVEL'
   },
   {
     codigo: 34,
@@ -156,19 +156,19 @@ export const tiposIntervencao = [{
   },
   {
     codigo: 40,
-    itens: 'FALHA MECANICA CLAMPS'
+    itens: 'FALHA MECÂNICA CLAMPS'
   },
   {
     codigo: 41,
-    itens: 'FALHA MECANICA MOTOR'
+    itens: 'FALHA MECÂNICA MOTOR'
   },
   {
     codigo: 42,
-    itens: 'FALHA MECANICA TRANSMISSÃO'
+    itens: 'FALHA MECÂNICA TRANSMISSÃO'
   },
   {
     codigo: 43,
-    itens: 'PROBLEMA MECANICO ENGATE'
+    itens: 'PROBLEMA MECÂNICO ENGATE'
   },
   {
     codigo: 44,
@@ -286,7 +286,7 @@ export const inspecaoQualidadeServico = [
 {Id:19 ,Item: 'TORQUE RODAS DIREÇÃO'},
 {Id:20 ,Item: 'TORQUE PARAFUSOS FIXAÇÃO TORRE'},
 {Id:21 ,Item: 'FIXAÇÃO DE BATERIAS'},
-{Id:22 ,Item: 'FIXAÇÃO DE CHICOTES ELETRICOS'},
+{Id:22 ,Item: 'FIXAÇÃO DE CHICOTES ELÉTRICOS'},
 {Id:23 ,Item: 'FIXAÇÃO DE CABOS DE VELAS'},
 {Id:24 ,Item: 'FIXAÇÃO DE MANGUEIRAS'},
 {Id:25 ,Item: 'FUNCIONAMENTO DO FREIO DE SERVIÇO'},
@@ -297,9 +297,9 @@ export const inspecaoQualidadeServico = [
 {Id:30 ,Item: 'VALIDADE E LACRE DO EXTINTOR'},
 {Id:31 ,Item: 'FUNCIONAMENTO CINDO DE SEGURANÇA'},
 {Id:32 ,Item: 'FUNCIONAMENTO DO BLUE SPOT'},
-{Id:33 ,Item: 'FUNCIONAMENTO DA SIRENE DE RE'},
+{Id:33 ,Item: 'FUNCIONAMENTO DA SIRENE DE RÉ'},
 {Id:34 ,Item: 'FUNCIONAMENTO DA BUZINA'},
-{Id:35 ,Item: 'FUNCIONAMENTO DA CAMERA DE RE'},
+{Id:35 ,Item: 'FUNCIONAMENTO DA CAMERA DE RÉ'},
 {Id:36 ,Item: 'ESTADO E FIXAÇÃO DOS RETROVISORES'},
 {Id:37 ,Item: 'ESTADO E LIMPEZA DE VIDROS DA CABINE'},
 {Id:'' ,Item: ''},
