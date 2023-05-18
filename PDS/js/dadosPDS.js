@@ -1,4 +1,5 @@
-export const tiposIntervencao = [{
+export const tiposIntervencao = [
+  {
     codigo: 1,
     itens: 'FREIOS'
   },
