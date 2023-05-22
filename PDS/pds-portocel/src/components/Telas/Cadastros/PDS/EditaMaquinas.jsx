@@ -23,16 +23,19 @@ export default class EditaMaquinas extends Component {
     const { tipoIntervencao } = this.state
     let linhas = []
     if (tipoIntervencao && tipoIntervencao.length > 0) {
-    let tamanho = Math.floor(tipoIntervencao.length / 3)
+    let tamanhoColuna = Number.parseInt(tipoIntervencao.length / 3)
     let resto = tipoIntervencao.length % 3
-    tamanho = resto > 0 ? tamanho + 1 : tamanho
-    for (let index = 0; index < tamanho; index++) {
-      console.log(index + " " + tamanho)
+    tamanhoColuna = resto > 0 ? tamanhoColuna + 1 : tamanhoColuna
+    for (let index = 0; index < tamanhoColuna; index++) {
       linhas.push(
         <tr>
           <td>{tipoIntervencao[index]['Codigo']}</td>
-          <td>{index + tamanho < tipoIntervencao.length ? tipoIntervencao[index + tamanho]['Codigo'] : ''}</td>
-          <td>{index + tamanho * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanho * 2]['Codigo'] : ''}</td>
+          <td>{tipoIntervencao[index]['Tipo Intervenção']}</td>
+          <td>{index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Codigo'] : ''}</td>
+          <td>{index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Tipo Intervenção'] : ''}</td>
+          <td>{index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Codigo'] : ''}</td>
+          <td>{index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Tipo Intervenção'] : ''}</td>
+          {/*note que temos 6 tds, 2 para cada coluna, e as condições*/}
         </tr>
       )
     }
