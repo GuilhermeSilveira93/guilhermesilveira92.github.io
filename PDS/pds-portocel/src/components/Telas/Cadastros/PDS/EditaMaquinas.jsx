@@ -19,55 +19,39 @@ export default class EditaMaquinas extends Component {
       .catch((error) => console.log(error));
   };
   render() {
-    const { id } = this.props
     const { tipoIntervencao } = this.state
     let linhas = []
     if (tipoIntervencao && tipoIntervencao.length > 0) {
-    let tamanhoColuna = Number.parseInt(tipoIntervencao.length / 3)
-    let resto = tipoIntervencao.length % 3
-    tamanhoColuna = resto > 0 ? tamanhoColuna + 1 : tamanhoColuna
-    for (let index = 0; index < tamanhoColuna; index++) {
-      linhas.push(
-        <tr>
-          <td>{tipoIntervencao[index]['Codigo']}</td>
-          <td>{tipoIntervencao[index]['Tipo Intervenção']}</td>
-          <td>{index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Codigo'] : ''}</td>
-          <td>{index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Tipo Intervenção'] : ''}</td>
-          <td>{index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Codigo'] : ''}</td>
-          <td>{index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Tipo Intervenção'] : ''}</td>
-          {/*note que temos 6 tds, 2 para cada coluna, e as condições*/}
-        </tr>
-      )
+      let tamanhoColuna = Number.parseInt(tipoIntervencao.length / 3)
+      let resto = tipoIntervencao.length % 3
+      tamanhoColuna = resto > 0 ? tamanhoColuna + 1 : tamanhoColuna
+      for (let index = 0; index < tamanhoColuna; index++) {
+        linhas.push(
+          <tr>
+            <td>{tipoIntervencao[index]['Codigo']}</td>
+            <td>
+              <input type="checkbox" name="codigo" id={tipoIntervencao[index]['Codigo']} />
+              {tipoIntervencao[index]['Tipo Intervenção']}
+            </td>
+            <td>
+              {index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Codigo'] : ''}
+            </td>
+            <td>
+              {index + tamanhoColuna < tipoIntervencao.length ? <input type="checkbox" name="codigo" id={tipoIntervencao[index + tamanhoColuna]['Codigo']} /> : ''}
+              {index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Tipo Intervenção'] : ''}
+            </td>
+            <td>
+              {index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Codigo'] : ''}
+            </td>
+            <td>
+              {index + tamanhoColuna * 2 < tipoIntervencao.length ? <input type="checkbox" name="codigo" id={tipoIntervencao[index + tamanhoColuna * 2]['Codigo']} /> : ''}
+              {index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Tipo Intervenção'] : ''}
+            </td>
+          </tr>
+        )
+      }
+
     }
-    
-  } 
-    /*
-    if (index < tipoIntervencao.length / 3) {
-      const codigo = tipoIntervencao[index]['Codigo'];
-      const tipo = tipoIntervencao[index]['Tipo Intervenção'];
-      const linha = <tr className="linhas"><td>{codigo}</td><td>{tipo}</td></tr>
-      linhas.push(linha)
-    } else {
-      const trlinhas = document.querySelector('.linhas')
-      console.log(trlinhas)
-      for (let index = 0; index < trlinhas.length; index++) {
-        const valor = trlinhas[index];
-        console.log(valor)*/
-    /*if (valor.children.length === 2) {
-      checkboxLabel.append(valores.itens)
-      checkbox.append(valores.itens)
-      tdCodigo.append(valores.codigo)
-      tdTipoIntervencao.append(checkbox)
-      tdTipoIntervencao.append(checkboxLabel)
-      valor.appendChild(tdCodigo)
-      valor.appendChild(tdTipoIntervencao)
-      divTipoIntervencao.append(valor)
-      break
-    } */
-
-
-
-
     return (
       <main>
         <div id="header">
@@ -133,7 +117,6 @@ export default class EditaMaquinas extends Component {
                     linhas
                     : ''
                 }
-
               </tbody>
             </table>
           </div>
