@@ -14,5 +14,12 @@ module.exports = {
         and vei.id_tipo_rastreado = tras.id_tipo_rastreado
     `);
     return resultado
+  },
+  async tipoIntervencao() {
+    const resultado = await knex.raw(`
+    select n_codigo "Codigo",S_NOME "Tipo Intervenção" from st_tipo_intervencao
+    `)
+    
+    return resultado
   }
 }

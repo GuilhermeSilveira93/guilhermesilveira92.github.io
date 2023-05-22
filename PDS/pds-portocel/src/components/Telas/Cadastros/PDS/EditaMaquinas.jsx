@@ -5,74 +5,124 @@ export default class EditaMaquinas extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      nomeMaquina: '',
-      id_veiculo: 0,
-      Hrs_Trabalho: '',
-      horimetro: '',
-      numeroFrota: '',
+      tipoIntervencao: [],
     }
   }
   componentDidMount() {
     api
-      .post('/consultar/consultaveiculoatualiza.json', {
-        params: {
-          id_veiculo: this.props.id_Veiculo,
-        },
-      })
-      .then(async (resposta) => {
-        const dadosMaquina = await resposta.data[0]
+      .get('/tipo_intervencao.json').then((resposta) => {
+        const dadosMaquina = resposta.data
         this.setState({
-          nomeMaquina: dadosMaquina.S_NUMERO_FROTA,
-          Hrs_Trabalho: dadosMaquina.N_HORAS_TRABALHO,
-          horimetro: dadosMaquina.N_HORIMETRO,
-          numeroFrota: dadosMaquina.S_NUMERO_FROTA,
-          id_veiculo: this.props.id_Veiculo,
+          tipoIntervencao: dadosMaquina
         })
       })
       .catch((error) => console.log(error));
   };
-  componentDidUpdate(prevProps, prevState) {
-    if (this.props.id_veiculo !== prevProps.id_veiculo && this.props.id_Veiculo !== 0) {
-      this.setState({ id_veiculo: this.props.id_Veiculo });
-    }
-  }
   render() {
+    const { id } = this.props
+    const { tipoIntervencao } = this.state
+    let linhas = []
+    for (let index = 0; index < tipoIntervencao.length; index++) {
+      if (index < tipoIntervencao.length / 3) {
+        const codigo = tipoIntervencao[index]['Codigo'];
+        const tipo = tipoIntervencao[index]['Tipo Intervenção'];
+        const linha = <tr className="linhas"><td>{codigo}</td><td>{tipo}</td></tr>
+        linhas.push(linha)
+      }else {
+        const trlinhas = document.querySelector('.linhas')
+        for (let index = 0; index < trlinhas.length; index++) {
+          const valor = linhas[index];
+          if (valor.children.length === 2) {
+            checkboxLabel.append(valores.itens)
+            checkbox.append(valores.itens)
+            tdCodigo.append(valores.codigo)
+            tdTipoIntervencao.append(checkbox)
+            tdTipoIntervencao.append(checkboxLabel)
+            valor.appendChild(tdCodigo)
+            valor.appendChild(tdTipoIntervencao)
+            divTipoIntervencao.append(valor)
+            break
+          } 
+      }
+
+      
+    }
     return (
-        <div id="edita_Maquinas">
-          <header>
-            <h1>Maquina: {this.state.nomeMaquina}</h1>
-          </header>
-          <form>
-            <label htmlFor="Hrs_Trabalho">Horas de Trabalho</label>
-            <input
-              type="number"
-              max={24}
-              min={0}
-              id="Hrs_Trabalho"
-              value={this.state.Hrs_Trabalho}
-              onChange={() => {
-                this.setState({ Hrs_Trabalho: this.value })
-                console.log(this.Hrs_Trabalho)
-              }} />
+      <main>
+        <div id="header">
+          <h1>Pedido de Serviço - PDS</h1>
+          <fieldset>
+            <legend>Configurações da Manutenção</legend>
+            <form action="post">
+              <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">CONTROLADOR DE CARGAS
+                :</label>
+              <input type="text" name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} /><br />
 
-            <label htmlFor="horimetro">Horimetro</label>
-            <input
-              type="number"
-              id="horimetro"
-              value={this.state.horimetro}
-              onChange={() => this.setState({ horimetro: this.value })} />
+              <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">OPERADOR TPA
+                :</label>
+              <input type="text" name="operadorTPA" id="operadorTPA"></input>
 
-            <label htmlFor="numeroFrota">Nome da Frota</label>
-            <input
-              type="text"
-              id="numeroFrota"
-              value={this.state.numeroFrota}
-              onChange={() => this.setState({ numeroFrota: this.value })} />
-            <button onClick={this.props.btnFechar}>Fechar</button>
-            {clearInterval()}
-          </form>
+              <label htmlFor="portoCel" name="portoCel" id="portoCel">PORTOCEL
+                :</label>
+              <input type="text" name="portoCel" id="portoCel" />
+
+              <label htmlFor="jsl" name="jsl" id="jsl">JSL
+                :</label>
+              <input type="text" name="jsl" id="jsl" /><br />
+
+              <label htmlFor="cracha" name="cracha" id="cracha"></label>
+
+              <label htmlFor="Frota" name="Frota" id="Frota"></label>
+
+              <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">HORÍMETRO
+                :</label>
+              <input type="number" name="Horimetro" id="Horimetro" />
+
+              <label htmlFor="Data" name="Data" id="Data">DATA: 10/05/2023 13:23</label>
+            </form>
+          </fieldset>
+          <div id="tipoIntervencao">
+            <table border="1">
+              <thead>
+                <tr>
+                  <th>
+                    <h3>Codigo</h3>
+                  </th>
+                  <th>
+                    <h3>Tipo Intervenção</h3>
+                  </th>
+                  <th>
+                    <h3>Codigo</h3>
+                  </th>
+                  <th>
+                    <h3>Tipo Intervenção</h3>
+                  </th>
+                  <th>
+                    <h3>Codigo</h3>
+                  </th>
+                  <th>
+                    <h3>Tipo Intervenção</h3>
+                  </th>
+                </tr>
+
+              </thead>
+              <tbody>
+                {
+                  tipoIntervencao ?
+                  linhas
+                : ''
+                }
+
+              </tbody>
+            </table>
+          </div>
+          <div id="anotacoes">
+            <label htmlFor="anotacoes">Serviço a Executar</label><br />
+            <textarea name="anotacoes" id="anotacoes" cols="100" rows="10" style={{ resize: 'none' }}></textarea>
+          </div>
         </div>
-    );
+      </main>
+    )
   }
 
 }
