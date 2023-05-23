@@ -16,8 +16,17 @@ rotas
   })
   rotas.get("/tipo_intervencao.json", async (req, res) => {
     try {
-      /*const { IDUSUARIO } = req.body.params.idUsuario[0]*/
+      const codigos = req
       const resultado = await manutencao.tipoIntervencao()
+      return res.status(200).json(resultado)
+    } catch (error) {
+      res.status(404).json({ message: error.message })
+    }
+  })
+  rotas.post("/tipo_intervencao.json", async (req, res) => {
+    try {
+      const {codigos} = req.body.params
+      const resultado = await manutencao.enviarCodigos(codigos)
       console.log(resultado)
       return res.status(200).json(resultado)
     } catch (error) {

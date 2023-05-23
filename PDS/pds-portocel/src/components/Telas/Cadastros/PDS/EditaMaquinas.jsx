@@ -6,7 +6,7 @@ export default class EditaMaquinas extends Component {
     super(props);
     this.state = {
       tipoIntervencao: [],
-      checkbox:[]
+      codigos:[]
     }
     this.teste = this.teste.bind(this)
   }
@@ -22,9 +22,24 @@ export default class EditaMaquinas extends Component {
   };
   teste(){
     const checkbox = document.getElementsByName('codigo')
+    let novosCodigos = []
+    checkbox.forEach(valores => {
+      if (valores.checked) {
+        novosCodigos.push(valores.value)
+      }
+    })
+    this.setState({codigos:novosCodigos},() => {
+      api
+      .post('/tipo_intervencao.json',{
+        params:{
+          codigos: this.state.codigos
+        }
+      }).then((resposta) => {
+        
+      })
+      .catch((error) => console.log(error));
+    })
     
-    this.setState({checkbox: checkbox.value})
-    console.log(this.state.checkbox)
   }
   render() {
     const { tipoIntervencao } = this.state

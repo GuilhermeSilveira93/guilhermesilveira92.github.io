@@ -19,7 +19,13 @@ module.exports = {
     const resultado = await knex.raw(`
     select n_codigo "Codigo",S_NOME "Tipo Intervenção" from st_tipo_intervencao
     `)
-    
+    return resultado
+  },
+  async enviarCodigos(codigos) {
+    const resultado = await knex.raw(`
+    select * from st_tipo_intervencao
+    where N_CODIGO in (${codigos})
+    `)
     return resultado
   }
 }
