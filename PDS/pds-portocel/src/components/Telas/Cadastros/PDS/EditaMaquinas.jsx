@@ -6,7 +6,9 @@ export default class EditaMaquinas extends Component {
     super(props);
     this.state = {
       tipoIntervencao: [],
+      checkbox:[]
     }
+    this.teste = this.teste.bind(this)
   }
   componentDidMount() {
     api
@@ -18,6 +20,12 @@ export default class EditaMaquinas extends Component {
       })
       .catch((error) => console.log(error));
   };
+  teste(){
+    const checkbox = document.getElementsByName('codigo')
+    
+    this.setState({checkbox: checkbox.value})
+    console.log(this.state.checkbox)
+  }
   render() {
     const { tipoIntervencao } = this.state
     let linhas = []
@@ -27,24 +35,24 @@ export default class EditaMaquinas extends Component {
       tamanhoColuna = resto > 0 ? tamanhoColuna + 1 : tamanhoColuna
       for (let index = 0; index < tamanhoColuna; index++) {
         linhas.push(
-          <tr>
+          <tr key={tipoIntervencao[index]['Codigo']}>
             <td>{tipoIntervencao[index]['Codigo']}</td>
             <td>
-              <input type="checkbox" name="codigo" id={tipoIntervencao[index]['Codigo']} />
+              <input type="checkbox" name="codigo" id={tipoIntervencao[index]['Codigo']} value={tipoIntervencao[index]['Codigo']} />
               {tipoIntervencao[index]['Tipo Intervenção']}
             </td>
             <td>
               {index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Codigo'] : ''}
             </td>
             <td>
-              {index + tamanhoColuna < tipoIntervencao.length ? <input type="checkbox" name="codigo" id={tipoIntervencao[index + tamanhoColuna]['Codigo']} /> : ''}
+              {index + tamanhoColuna < tipoIntervencao.length ? <input type="checkbox" name="codigo" id={tipoIntervencao[index + tamanhoColuna]['Codigo']} value={tipoIntervencao[index + tamanhoColuna]['Codigo']} /> : ''}
               {index + tamanhoColuna < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna]['Tipo Intervenção'] : ''}
             </td>
             <td>
               {index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Codigo'] : ''}
             </td>
             <td>
-              {index + tamanhoColuna * 2 < tipoIntervencao.length ? <input type="checkbox" name="codigo" id={tipoIntervencao[index + tamanhoColuna * 2]['Codigo']} /> : ''}
+              {index + tamanhoColuna * 2 < tipoIntervencao.length ? <input type="checkbox" name="codigo" id={tipoIntervencao[index + tamanhoColuna * 2]['Codigo']} value={tipoIntervencao[index + tamanhoColuna * 2]['Codigo']} /> : ''}
               {index + tamanhoColuna * 2 < tipoIntervencao.length ? tipoIntervencao[index + tamanhoColuna * 2]['Tipo Intervenção'] : ''}
             </td>
           </tr>
@@ -124,6 +132,7 @@ export default class EditaMaquinas extends Component {
             <label htmlFor="anotacoes">Serviço a Executar</label><br />
             <textarea name="anotacoes" id="anotacoes" cols="100" rows="10" style={{ resize: 'none' }}></textarea>
           </div>
+          <button type="submit" onClick={this.teste}>Enviar</button>
         </div>
       </main >
     )
