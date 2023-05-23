@@ -1,7 +1,5 @@
 import React, { Component } from "react"
 import api from '../../../../api/Api';
-import EditaMaquinas from './EditaMaquinas'
-
 export default class ManutencoesAberto extends Component {
   constructor(props) {
     super(props);
@@ -48,7 +46,10 @@ export default class ManutencoesAberto extends Component {
                   return (
                     manutencao.S_NOME !== 'Sem Operador' ?
                       <tr key={manutencao.ID_MANUTENCAO} id={manutencao.ID_MANUTENCAO}>
-                        <th onClick={() => exibirPDS()} style={{ cursor: 'pointer' }} id={manutencao.ID_MANUTENCAO}>PDS</th>
+                        <th onClick={
+                          () => exibirPDS(manutencao.ID_MANUTENCAO, manutencao['Frota'], manutencao['Quem Abriu'], manutencao['Data'], manutencao.ID_TIPO_INTERVENCAO)}
+                          style={{ cursor: 'pointer' }}
+                          id={manutencao.ID_MANUTENCAO}>PDS</th>
                         <th id={manutencao.ID_VEICULO}>{manutencao['Frota']}</th>
                         <th id={manutencao['Tipo Maquina']}>{manutencao['Tipo Maquina']}</th>
                         <th>Manutenções em Aberto</th>
@@ -63,8 +64,6 @@ export default class ManutencoesAberto extends Component {
             </tbody>
           </table>
         </div>
-        {this.state.janelaEditaMaquinas === true ?
-          <EditaMaquinas Maquina={this.state.numeroFrota} id_Veiculo={this.state.idVeiculo} btnFechar={() => { this.setState({ janelaEditaMaquinas: false }) }} /> : ''}
       </section>
     );
   }

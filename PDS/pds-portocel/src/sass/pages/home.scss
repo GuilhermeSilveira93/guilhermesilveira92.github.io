@@ -1,0 +1,11 @@
+  /*sass --watch src/sass/style.scss:src/index.css*/
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  html,
+  body {
+    font: normal normal normal 12px/1.5 Verdana,Arial, Sans-Serif;
+  }

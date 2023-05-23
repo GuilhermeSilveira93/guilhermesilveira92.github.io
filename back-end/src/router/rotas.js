@@ -16,21 +16,20 @@ rotas
   })
   rotas.get("/tipo_intervencao.json", async (req, res) => {
     try {
-      const codigos = req
       const resultado = await manutencao.tipoIntervencao()
       return res.status(200).json(resultado)
     } catch (error) {
       res.status(404).json({ message: error.message })
     }
   })
-  rotas.post("/tipo_intervencao.json", async (req, res) => {
+  rotas.post("/registrarntervencao.json", async (req, res) => {
     try {
-      const {codigos} = req.body.params
-      const resultado = await manutencao.enviarCodigos(codigos)
-      console.log(resultado)
+      const {id_tipo_intervencao,idManutencao,controlador,operadorTPA,portocel,jsl,horimetro,aexecutar} = req.body.params
+      console.log(req.body.params)
+      const resultado = await manutencao.enviarPDS(id_tipo_intervencao,idManutencao,controlador,operadorTPA,portocel,jsl,horimetro,aexecutar)
       return res.status(200).json(resultado)
     } catch (error) {
-      res.status(404).json({ message: error.message })
+      res.status(500).json({ message: error.message })
     }
   })
 module.exports = rotas

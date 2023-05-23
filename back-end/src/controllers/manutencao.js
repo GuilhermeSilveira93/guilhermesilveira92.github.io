@@ -17,15 +17,25 @@ module.exports = {
   },
   async tipoIntervencao() {
     const resultado = await knex.raw(`
-    select n_codigo "Codigo",S_NOME "Tipo Intervenção" from st_tipo_intervencao
+    select id_tipo_intervencao, n_codigo "Codigo",S_NOME "Tipo Intervenção" from st_tipo_intervencao
     `)
     return resultado
   },
-  async enviarCodigos(codigos) {
-    const resultado = await knex.raw(`
-    select * from st_tipo_intervencao
-    where N_CODIGO in (${codigos})
-    `)
-    return resultado
+  async enviarPDS(id_tipo_intervencao, idManutencao, controlador, operadorTPA, portocel, jsl, horimetro, aexecutar) {
+    await knex.transaction(async trx => {
+      await trx.raw(`
+        insert into st_pds(id_pds,id_manutencao,n_codigo_pds,s_controlador_carga,s_operador_tpa,s_portocel,
+          s_jsl,n_horimetro,d_data_abertura,s_servico_solicitacao)
+          values
+          (seq_stpds.nextval,${idManutencao},seq_stpds.currval,'${controlador}','${operadorTPA}','${portocel}',
+            '${jsl}',${horimetro},sysdate,'${aexecutar}')
+            `);
+      await trx.raw(`
+      insert into st_pds_tipo_intervencao(id_pds_tipo_intervencao,id_pds,id_tipo_intervencao)
+      (select seq_stpdstipointervencao.nextval,seq_stpds.currval,id_tipo_intervencao from (select id_tipo_intervencao
+        from st_tipo_intervencao 
+        where id_tipo_intervencao in (${id_tipo_intervencao})))
+      `);
+    });
   }
 }
