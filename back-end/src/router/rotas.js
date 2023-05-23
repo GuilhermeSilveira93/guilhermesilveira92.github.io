@@ -25,7 +25,6 @@ rotas
   rotas.post("/registrarntervencao.json", async (req, res) => {
     try {
       const {id_tipo_intervencao,idManutencao,controlador,operadorTPA,portocel,jsl,horimetro,aexecutar} = req.body.params
-      console.log(req.body.params)
       const resultado = await manutencao.enviarPDS(id_tipo_intervencao,idManutencao,controlador,operadorTPA,portocel,jsl,horimetro,aexecutar)
       return res.status(200).json(resultado)
     } catch (error) {
