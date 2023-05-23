@@ -29,7 +29,7 @@ export default class ManutencoesAberto extends Component {
       <section id="Tabela" className="filhos">
         <h2>Manutenções - PDS</h2>
         <div className="pds" style={{ overflowy: 'auto' }}>
-          <table>
+          <table border={1}>
             <thead>
               <tr>
                 <th></th>

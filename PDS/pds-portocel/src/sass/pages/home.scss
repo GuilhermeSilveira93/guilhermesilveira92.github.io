@@ -9,3 +9,60 @@
   body {
     font: normal normal normal 12px/1.5 Verdana,Arial, Sans-Serif;
   }
+  #Tabela{
+    margin: 50px auto;
+    width: 100%;
+    max-width: 775px;
+    table{
+      border-collapse: collapse;
+      th{
+        padding: 2px 10px;
+      }
+    }
+  }
+  #header{
+    position: relative;
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    fieldset{
+      padding: 0px 0px 0px 15px;
+      legend{
+        padding: 0px 10px
+      }
+      input{
+        margin: 10px 37px 5px 0px;
+      }
+      #cracha,#Frota{
+        margin: 0px 25px 1px 0px;
+      }
+    }
+    #tipoIntervencao{
+      table{
+        border-collapse: collapse;
+        width: 100%;
+        th,td{
+          padding: 1px 10px;
+        }
+      }
+    }
+    #anotacoes{
+      margin: 15px 0px 0px 0px;
+      padding: 15px;
+      textarea{
+        padding: 15px;
+        width: 100%;
+        height: 100%;
+        max-height: 150px;
+      }
+    }
+    button{
+      position: absolute;
+      padding: 5px 20px;
+      bottom: -15px;
+      right: 20px;
+    }
+    #voltar{
+      left: 20px;
+    }
+  }

@@ -157,7 +157,7 @@ export default class EditaMaquinas extends Component {
           </div>
           <div id="anotacoes">
             <label htmlFor="anotacoes">Serviço a Executar</label><br />
-            <textarea name="anotacoes" id="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
+            <textarea name="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
           </div>
           <button type="submit" onClick={this.getForm}>Enviar</button>
           <button id="voltar" onClick={() => fecharPDS()}>Voltar</button>
