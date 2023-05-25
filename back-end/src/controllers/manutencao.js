@@ -12,6 +12,7 @@ module.exports = {
         and ma.id_motorista_inclusao = mot.id_motorista
         and ma.ID_VEICULO = vei.id_veiculo
         and vei.id_tipo_rastreado = tras.id_tipo_rastreado
+        and ma.id_manutencao not in (select id_manutencao from st_pds)
     `);
     return resultado
   },
@@ -22,15 +23,15 @@ module.exports = {
     return resultado
   },
   async enviarPDS(id_tipo_intervencao, idManutencao, controlador, operadorTPA, portocel, jsl, horimetro, aexecutar) {
-    await knex.transaction(async trx => {
-      await trx.raw(`
+    await knex.transaction(async knex => {
+      await knex.raw(`
         insert into st_pds(id_pds,id_manutencao,n_codigo_pds,s_controlador_carga,s_operador_tpa,s_portocel,
           s_jsl,n_horimetro,d_data_abertura,s_servico_solicitacao)
           values
           (seq_stpds.nextval,${idManutencao},seq_stpds.currval,'${controlador}','${operadorTPA}','${portocel}',
             '${jsl}',${horimetro},sysdate,'${aexecutar}')
             `);
-      await trx.raw(`
+      await knex.raw(`
       insert into st_pds_tipo_intervencao(id_pds_tipo_intervencao,id_pds,id_tipo_intervencao)
       (select seq_stpdstipointervencao.nextval,seq_stpds.currval,id_tipo_intervencao from (select id_tipo_intervencao
         from st_tipo_intervencao 
