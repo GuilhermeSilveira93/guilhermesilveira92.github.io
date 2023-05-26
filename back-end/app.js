@@ -18,7 +18,7 @@ app.use((error,requisicao,resposta,next)=>{
   resposta.json({error: error.message})
 })
 /*TRATAMENTO DE ERROS*/
-const porta = 8080
+const porta = 9100
 try {
   app.listen(porta, async ()=>{
     console.log(`Servidor na porta ${porta}`)
