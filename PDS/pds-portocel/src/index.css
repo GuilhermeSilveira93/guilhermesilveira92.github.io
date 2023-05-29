@@ -9,7 +9,7 @@
 
 html,
 body {
-  font: normal normal normal 11px/1.5 Verdana, Arial, Sans-Serif;
+  font: normal normal normal 12px/1.5 Verdana, Arial, Sans-Serif;
 }
 
 #fundo {
@@ -38,6 +38,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   background-color: rgb(255, 255, 255);
   max-width: 400px;
   height: auto;
@@ -49,31 +50,34 @@ body {
   border-radius: 5px;
   background: #e7eef3 url("images/ui-bg_highlight-soft_100_e7eef3_1x100.png") 50% 50% repeat-x;
 }
-#janela .alerta #mensagem {
+#janela .alerta #mensagemErro {
   font-weight: bold;
   background: url("images/erroValidate.gif") no-repeat 4px 5px;
   color: #990000;
-  font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 10px;
   padding: 5px 20px 35px;
+}
+#janela .alerta #mensagemErro#mensagemNormal {
+  background: none;
 }
 #janela .alerta hr {
   margin: 3px;
 }
 #janela .alerta button {
   position: relative;
-  padding: 0.2em 1em;
+  padding: 0.3em 1.7em;
   bottom: 1px;
-  right: -340px;
+  right: -320px;
   cursor: pointer;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
   font-size: 10px;
-  background-image: url("images/ui-bg_highlight-soft_100_e7eef3_1x100.png");
   border: 1px solid #b2c7d7;
   border-radius: 2px;
 }
 #janela .alerta button:hover {
   background-color: white;
   border: 1px solid #b2c7d7;
+  background-image: url("images/ui-bg_highlight-soft_100_e7eef3_1x100.png");
   border-radius: 2px;
 }
 
@@ -144,7 +148,7 @@ main {
   margin: 0 auto;
 }
 #content fieldset {
-  padding: 0px 0px 0px 15px;
+  padding: 10px 0px 15px 15px;
 }
 #content fieldset legend {
   padding: 0px 10px;
@@ -165,17 +169,18 @@ main {
 }
 #content #tipoIntervencao table thead {
   border: 1px solid #ACBECE;
-  font-size: 11px;
   background-image: url("images/fhbg.gif");
 }
 #content #tipoIntervencao table th,
 #content #tipoIntervencao table td {
   border: 1px solid #ACBECE;
   padding: 1px 10px;
-  font-size: 10px;
+}
+#content #tipoIntervencao table tbody tr td {
+  font-size: 11px;
 }
 #content #anotacoes {
-  margin: 0px 0px 0px 0px;
+  margin: 30px 0px 0px 0px;
   padding: 5px 0px 0px 0px;
 }
 #content #anotacoes textarea {
@@ -189,10 +194,14 @@ main {
   font-size: 10px;
   bottom: 0px;
   right: 20px;
+  padding: 0.3em 1.7em;
   cursor: pointer;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
+  border: 1px solid #b2c7d7;
+  border-radius: 2px;
 }
 #content #voltar {
-  right: 80px;
+  right: 100px;
 }
 
 /*# sourceMappingURL=index.css.map */

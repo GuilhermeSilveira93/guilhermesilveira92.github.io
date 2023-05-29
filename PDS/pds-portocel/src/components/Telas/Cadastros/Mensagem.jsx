@@ -6,17 +6,19 @@ export default class Mensagem extends Component {
     };
   }
   render() {
-    const { mostrarMensagem } = this.props
+    const { mostrarMensagem, titulo , paragrafo1, paragrafo2 , paragrafo3, idMensagem } = this.props
     return (
       <>
         <div id="fundo"></div>
         <div id="janela">
           <div className="alerta">
             <div id="title">
-              <h4>Erro</h4>
+              <h4>{titulo}</h4>
             </div>
-            <div id="mensagem">
-              <p>Por favor, selecione um tipo de intervenção para enviar o PDS</p>
+            <div id={idMensagem}>
+              <p>{paragrafo1}</p>
+              <p>{paragrafo2}</p>
+              <p>{paragrafo3}</p>
             </div>
             <hr />
             <button onClick={() => mostrarMensagem()}>Fechar</button>

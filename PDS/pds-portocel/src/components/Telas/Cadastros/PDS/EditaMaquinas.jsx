@@ -113,10 +113,10 @@ export default class EditaMaquinas extends Component {
     }
     return (
       <>
-        {mensagem ? <Mensagem mostrarMensagem={this.mostrarMensagem} /> : ''}
+        {mensagem ? <Mensagem idMensagem={'mensagemErro'} mostrarMensagem={this.mostrarMensagem} titulo={'Erro'} paragrafo1={'Por favor, selecione um tipo de intervenção para enviar o PDS'} /> : ''}
         <main>
           <div id="content">
-            <h3>Pedido de Serviço - PDS</h3>
+            <h2>Pedido de Serviço - PDS</h2>
             <fieldset>
               <legend>Configurações da Manutenção</legend>
               <form action="post">
