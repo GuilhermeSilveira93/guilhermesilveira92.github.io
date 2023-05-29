@@ -24,23 +24,6 @@ module.exports = {
       directory: `${__dirname}/src/database/seeds`
     }
   },
-  conexao2: {
-    client: 'oracledb',
-    connection: {
-      host: 'localhost:1521/orcl',
-      user: 'SFWSTJSOLAR',
-      password: 'SFWSTJSOLAR',
-      database: 'orcl'
-    },
-    fetchAsString: ['number', 'clob'],
-    migrations: {
-      tableName: 'knex_migrations',
-      directory: `${__dirname}/src/database/migrations`
-    },
-    seeds: {
-      directory: `${__dirname}/src/database/seeds`
-    }
-  }
 /*
   staging: {
     client: 'postgresql',

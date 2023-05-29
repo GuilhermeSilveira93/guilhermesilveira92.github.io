@@ -26,45 +26,47 @@ export default class ManutencoesAberto extends Component {
     const { manutencoesAbertas } = this.state
     const { exibirPDS } = this.props
     return (
-      <section id="Tabela" className="filhos">
-        <h2>Manutenções - PDS</h2>
-        <div className="pds" style={{ overflowy: 'auto' }}>
-          <table border={1}>
-            <thead>
-              <tr>
-                <th></th>
-                <th>Frota</th>
-                <th>Tipo Maquina</th>
-                <th>Tipo Manutenção</th>
-                <th>Data</th>
-                <th>Quem Abriu</th>
-              </tr>
-            </thead>
-            <tbody>
-              {manutencoesAbertas ? (
-                manutencoesAbertas.map((manutencao) => {
-                  return (
-                    manutencao.S_NOME !== 'Sem Operador' ?
-                      <tr key={manutencao.ID_MANUTENCAO} id={manutencao.ID_MANUTENCAO}>
-                        <th onClick={
-                          () => exibirPDS(manutencao.ID_MANUTENCAO, manutencao['Frota'], manutencao['Quem Abriu'], manutencao['Data'], manutencao.ID_TIPO_INTERVENCAO)}
-                          style={{ cursor: 'pointer' }}
-                          id={manutencao.ID_MANUTENCAO}>PDS</th>
-                        <th id={manutencao.ID_VEICULO}>{manutencao['Frota']}</th>
-                        <th id={manutencao['Tipo Maquina']}>{manutencao['Tipo Maquina']}</th>
-                        <th>Manutenções em Aberto</th>
-                        <th id={manutencao['Data']}>{manutencao['Data']}</th>
-                        <th id={manutencao['Quem Abriu']}>{manutencao['Quem Abriu']}</th>
-                      </tr> : ''
-                  );
-                })
-              ) : (
-                'Erro'
-              )}
-            </tbody>
-          </table>
-        </div>
-      </section>
+        <main>
+          <section id="Tabela" className="filhos">
+            <div className="pds" style={{ overflowy: 'auto' }}>
+              <h2>Manutenções - PDS</h2>
+              <table>
+                <thead>
+                  <tr>
+                    <th></th>
+                    <th>Frota</th>
+                    <th>Tipo Maquina</th>
+                    <th>Tipo Manutenção</th>
+                    <th>Data</th>
+                    <th>Quem Abriu</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {manutencoesAbertas ? (
+                    manutencoesAbertas.map((manutencao) => {
+                      return (
+                        manutencao.S_NOME !== 'Sem Operador' ?
+                          <tr key={manutencao.ID_MANUTENCAO} id={manutencao.ID_MANUTENCAO}>
+                            <th onClick={
+                              () => exibirPDS(manutencao.ID_MANUTENCAO, manutencao['Frota'], manutencao['Quem Abriu'], manutencao['Data'], manutencao.ID_TIPO_INTERVENCAO)}
+                              style={{ cursor: 'pointer' }}
+                              id={manutencao.ID_MANUTENCAO}>PDS</th>
+                            <th id={manutencao.ID_VEICULO}>{manutencao['Frota']}</th>
+                            <th id={manutencao['Tipo Maquina']}>{manutencao['Tipo Maquina']}</th>
+                            <th>Manutenções em Aberto</th>
+                            <th id={manutencao['Data']}>{manutencao['Data']}</th>
+                            <th id={manutencao['Quem Abriu']}>{manutencao['Quem Abriu']}</th>
+                          </tr> : ''
+                      );
+                    })
+                  ) : (
+                    'Erro'
+                  )}
+                </tbody>
+              </table>
+            </div>
+          </section>
+        </main>
     );
   }
 }
