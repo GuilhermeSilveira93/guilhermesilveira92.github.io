@@ -29,7 +29,7 @@ export default class Main extends Component {
   render() {
     const {idManutencao,frota,cracha,data} = this.state
     return (
-      this.state.paginaPDS ? <EditaMaquinas idManutencao={idManutencao} frota={frota} cracha={cracha} data={data} fecharPDS={this.fecharPDS}/> : <ManutencoesAberto exibirPDS={this.exibirPDS} />
+      this.state.paginaPDS ===false ? <EditaMaquinas idManutencao={idManutencao} frota={frota} cracha={cracha} data={data} fecharPDS={this.fecharPDS}/> : <ManutencoesAberto exibirPDS={this.exibirPDS} />
     );
   }
 }

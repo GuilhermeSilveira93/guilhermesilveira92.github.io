@@ -77,7 +77,7 @@ export default class EditaMaquinas extends Component {
 
   }
   render() {
-    const { tipoIntervencao, frota, cracha, data,mensagem } = this.state
+    const { tipoIntervencao, frota, cracha, data,mensagem,anotacoes } = this.state
     const { fecharPDS } = this.props
     let linhas = []
     if (tipoIntervencao && tipoIntervencao.length > 0) {
@@ -170,8 +170,9 @@ export default class EditaMaquinas extends Component {
               </table>
             </div>
             <div id="anotacoes">
-              <label htmlFor="anotacoes">Serviço a Executar ( 500 caracteres )</label><br />
-              <textarea name="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
+              <label htmlFor="anotacoes">Serviço a Executar</label>
+              <label htmlFor="anotacoes" style={{float:'right'}}>{anotacoes.length}/500 caracteres</label>
+              <textarea maxLength={500} name="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
             </div>
             <button id="voltar" onClick={() => fecharPDS()}>Voltar</button>
           </div>
