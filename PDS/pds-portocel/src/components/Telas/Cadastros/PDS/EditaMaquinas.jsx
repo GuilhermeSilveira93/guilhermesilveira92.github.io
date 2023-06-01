@@ -41,7 +41,8 @@ export default class EditaMaquinas extends Component {
     }
   }
 
-  getForm() {
+  getForm(e) {
+    e.preventDefault()
     const codigo = document.getElementsByName('codigo')
     let novosCodigos = []
     codigo.forEach(valores => {

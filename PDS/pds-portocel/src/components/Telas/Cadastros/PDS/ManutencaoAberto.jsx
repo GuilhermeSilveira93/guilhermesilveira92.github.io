@@ -32,7 +32,7 @@ export default class ManutencoesAberto extends Component {
             <h2>Manutenções - PDS</h2>
             <table>
               <thead>
-                {manutencoesAbertas && manutencoesAbertas > 0 ?
+                {manutencoesAbertas && manutencoesAbertas.length > 0 ?
                   <tr>
                     <th></th>
                     <th>Frota</th>
