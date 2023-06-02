@@ -6,7 +6,7 @@ export default class Mensagem extends Component {
     };
   }
   render() {
-    const { mostrarMensagem, titulo , paragrafo1, paragrafo2 , paragrafo3, idMensagem } = this.props
+    const { mostrarMensagem, titulo , paragrafo1, paragrafo2 , paragrafo3, idMensagem,fecharPDS } = this.props
     return (
       <>
         <div id="fundo"></div>
@@ -21,7 +21,12 @@ export default class Mensagem extends Component {
               <p>{paragrafo3}</p>
             </div>
             <hr />
-            <button onClick={() => mostrarMensagem()}>Fechar</button>
+            <button onClick={() => {
+              mostrarMensagem()
+              if (idMensagem === 'mensagemNormal') {
+               fecharPDS()
+              }
+              }}>Fechar</button>
           </div>
         </div>
       </>

@@ -57,8 +57,9 @@ body {
   font-size: 10px;
   padding: 5px 20px 35px;
 }
-#janela .alerta #mensagemErro#mensagemNormal {
+#janela .alerta #mensagemNormal {
   background: none;
+  padding: 5px 20px 35px;
 }
 #janela .alerta hr {
   margin: 3px;

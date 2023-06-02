@@ -6,6 +6,10 @@ export default class EditaMaquinas extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      titulo:'',
+      idMensagem:'',
+      paragrafo1:'',
+      paragrafo2:'',
       mensagem: false,
       tipoIntervencao: [],
       id_tipo_intervencao: [],
@@ -42,23 +46,30 @@ export default class EditaMaquinas extends Component {
   }
 
   getForm(e) {
-    e.preventDefault()
-    const { idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes } = this.state
-    const codigo = document.getElementsByName('codigo')
-    let novosCodigos = []
-    codigo.forEach(valores => {
+    e.preventDefault();
+    const { idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes } = this.state;
+    const codigo = document.getElementsByName("codigo");
+    let novosCodigos = [];
+    codigo.forEach((valores) => {
       if (valores.checked) {
-        novosCodigos.push(valores.value)
+        novosCodigos.push(valores.value);
       }
-    })
+    });
     this.setState(
       {
         id_tipo_intervencao: novosCodigos,
       },
       () => {
         const { id_tipo_intervencao } = this.state;
-        if (id_tipo_intervencao.length > 0 && idManutencao.length > 0 && controladorDeCargas.length > 0 && operadorTPA.length > 0 && portoCel.length > 0 && jsl.length > 0 && horimetro.length > 0 && anotacoes.length > 0)
-        {
+        if (          id_tipo_intervencao.length > 0 &&
+          idManutencao.length > 0 &&
+          controladorDeCargas.length > 0 &&
+          operadorTPA.length > 0 &&
+          portoCel.length > 0 &&
+          jsl.length > 0 &&
+          horimetro.length > 0 &&
+          anotacoes.length > 0
+        ) {
           api
             .post("/registrarntervencao.json", {
               params: {
@@ -73,21 +84,20 @@ export default class EditaMaquinas extends Component {
               },
             })
             .then((resposta) => {
-              alert("Dados inseridos com sucesso");
-              this.props.fecharPDS();
+              this.setState({ mensagem: true,idMensagem:'mensagemNormal',titulo:'Sucesso',paragrafo1:'Dados Enviados com Sucesso !',paragrafo2:''});
             })
             .catch((error) => {
               alert(error);
               console.log(controladorDeCargas);
             });
         } else {
-          this.setState({ mensagem: true });
+          this.setState({ mensagem: true,idMensagem:'mensagemErro' , titulo:'Erro',paragrafo1:'Por favor, verifique se todos os campos foram preenchidos.',paragrafo2:'Campos com ( * ) são obrigatórios'});
         }
       }
     );
   }
   render() {
-    const { tipoIntervencao, frota, cracha, data, mensagem, anotacoes } = this.state
+    const { tipoIntervencao, frota, cracha, data, mensagem, anotacoes,titulo,paragrafo1,paragrafo2,idMensagem } = this.state
     const { fecharPDS } = this.props
     let linhas = []
     if (tipoIntervencao && tipoIntervencao.length > 0) {
@@ -123,7 +133,7 @@ export default class EditaMaquinas extends Component {
     }
     return (
       <>
-        {mensagem ? <Mensagem idMensagem={'mensagemErro'} mostrarMensagem={this.mostrarMensagem} titulo={'Erro'} paragrafo1={'Por favor, verifique se todos os campos foram preenchidos.'} paragrafo2={'Campos com ( * ) são obrigatórios'} /> : ''}
+        {mensagem ? <Mensagem idMensagem={idMensagem} mostrarMensagem={this.mostrarMensagem} titulo={titulo} paragrafo1={paragrafo1} paragrafo2={paragrafo2} fecharPDS={fecharPDS}/> : ''}
         <main>
           <div id="content">
             <h2>Pedido de Serviço - PDS</h2>
