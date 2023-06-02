@@ -43,6 +43,7 @@ export default class EditaMaquinas extends Component {
 
   getForm(e) {
     e.preventDefault()
+    const { id_tipo_intervencao, idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes } = this.state
     const codigo = document.getElementsByName('codigo')
     let novosCodigos = []
     codigo.forEach(valores => {
@@ -50,36 +51,43 @@ export default class EditaMaquinas extends Component {
         novosCodigos.push(valores.value)
       }
     })
-    this.setState({
-      id_tipo_intervencao: novosCodigos,
-    }, () => {
-      if (this.state.id_tipo_intervencao.length > 0) {
-        api
-          .post('/registrarntervencao.json', {
-            params: {
-              id_tipo_intervencao: this.state.id_tipo_intervencao,
-              idManutencao: this.state.idManutencao,
-              controlador: this.state.controladorDeCargas,
-              operadorTPA: this.state.operadorTPA,
-              portocel: this.state.portoCel,
-              jsl: this.state.jsl,
-              horimetro: this.state.horimetro,
-              aexecutar: this.state.anotacoes
-            }
-          }).then((resposta) => {
-            alert('Dados inseridos com sucesso')
-            this.props.fecharPDS()
-          })
-          .catch((error) => alert(error) + console.log(this.state.controladorDeCargas));
-      } else {
-        this.setState({mensagem:true})
+    this.setState(
+      {
+        id_tipo_intervencao: novosCodigos,
+      },
+      () => {
+        const { id_tipo_intervencao } = this.state;
+        if (id_tipo_intervencao.length > 0 && idManutencao.length > 0 && controladorDeCargas.length > 0 && operadorTPA.length > 0 && portoCel.length > 0 && jsl.length > 0 && horimetro.length > 0 && anotacoes.length > 0)
+        {
+          api
+            .post("/registrarntervencao.json", {
+              params: {
+                id_tipo_intervencao: id_tipo_intervencao,
+                idManutencao: idManutencao,
+                controlador: controladorDeCargas,
+                operadorTPA: operadorTPA,
+                portocel: portoCel,
+                jsl: jsl,
+                horimetro: horimetro,
+                aexecutar: anotacoes,
+              },
+            })
+            .then((resposta) => {
+              alert("Dados inseridos com sucesso");
+              this.props.fecharPDS();
+            })
+            .catch((error) => {
+              alert(error);
+              console.log(controladorDeCargas);
+            });
+        } else {
+          this.setState({ mensagem: true });
+        }
       }
-
-    })
-
+    );
   }
   render() {
-    const { tipoIntervencao, frota, cracha, data,mensagem,anotacoes } = this.state
+    const { tipoIntervencao, frota, cracha, data, mensagem, anotacoes } = this.state
     const { fecharPDS } = this.props
     let linhas = []
     if (tipoIntervencao && tipoIntervencao.length > 0) {
@@ -115,31 +123,31 @@ export default class EditaMaquinas extends Component {
     }
     return (
       <>
-        {mensagem ? <Mensagem idMensagem={'mensagemErro'} mostrarMensagem={this.mostrarMensagem} titulo={'Erro'} paragrafo1={'Por favor, selecione um tipo de intervenção para enviar o PDS'} /> : ''}
+        {mensagem ? <Mensagem idMensagem={'mensagemErro'} mostrarMensagem={this.mostrarMensagem} titulo={'Erro'} paragrafo1={'Por favor, verifique se todos os campos foram preenchidos.'} paragrafo2={'Campos com ( * ) são obrigatórios'} /> : ''}
         <main>
           <div id="content">
             <h2>Pedido de Serviço - PDS</h2>
             <fieldset>
               <legend>Configurações da Manutenção</legend>
               <form action="post">
-                <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">CONTROLADOR DE CARGAS: </label>
-                <input type="text" required name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} /><br />
+                <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">*CONTROLADOR DE CARGAS: </label>
+                <input type="text" name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} required /><br />
 
-                <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">OPERADOR TPA: </label>
-                <input type="text" required name="operadorTPA" id="operadorTPA" onChange={(e) => this.setState({ operadorTPA: e.target.value })}></input>
+                <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">*OPERADOR TPA: </label>
+                <input type="text" name="operadorTPA" id="operadorTPA" onChange={(e) => this.setState({ operadorTPA: e.target.value })} required />
 
-                <label htmlFor="portoCel" required name="portoCel" id="portoCel">PORTOCEL: </label>
-                <input type="text" required name="portoCel" id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} />
+                <label htmlFor="portoCel" name="portoCel" id="portoCel">*PORTOCEL: </label>
+                <input type="text" name="portoCel" id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} required />
 
-                <label htmlFor="jsl" name="jsl" id="jsl">JSL: </label>
-                <input type="text" required name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
+                <label htmlFor="jsl" name="jsl" id="jsl">*JSL: </label>
+                <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} required /><br />
 
                 <label htmlFor="cracha" name="cracha" id="cracha">Cracha: {cracha}</label>
 
                 <label htmlFor="Frota" name="Frota" id="Frota">Frota: {frota}</label>
 
-                <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">HORÍMETRO: </label>
-                <input type="number" required name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} />
+                <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">*HORÍMETRO: </label>
+                <input type="number" name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} required />
 
                 <label htmlFor="Data" name="Data" id="Data">DATA: {data}</label>
                 <button type="submit" onClick={this.getForm}>Enviar</button>
@@ -168,7 +176,7 @@ export default class EditaMaquinas extends Component {
             </div>
             <div id="anotacoes">
               <label htmlFor="anotacoes">Serviço a Executar</label>
-              <label htmlFor="anotacoes" style={{float:'right'}}>{anotacoes.length}/500 caracteres</label>
+              <label htmlFor="anotacoes" style={{ float: 'right' }}>{anotacoes.length}/500 caracteres</label>
               <textarea maxLength={500} name="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
             </div>
             <button id="voltar" onClick={() => fecharPDS()}>Voltar</button>
