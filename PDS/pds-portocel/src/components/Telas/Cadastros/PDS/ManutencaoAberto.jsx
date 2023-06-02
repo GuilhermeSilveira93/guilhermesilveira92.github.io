@@ -52,15 +52,15 @@ export default class ManutencoesAberto extends Component {
                     return (
                       manutencao.S_NOME !== 'Sem Operador' ?
                         <tr key={manutencao.ID_MANUTENCAO} id={manutencao.ID_MANUTENCAO}>
-                          <th onClick={
+                          <td onClick={
                             () => exibirPDS(manutencao.ID_MANUTENCAO, manutencao['Frota'], manutencao['Quem Abriu'], manutencao['Data'], manutencao.ID_TIPO_INTERVENCAO)}
                             style={{ cursor: 'pointer' }}
-                            id={manutencao.ID_MANUTENCAO}>PDS</th>
-                          <th id={manutencao.ID_VEICULO}>{manutencao['Frota']}</th>
-                          <th id={manutencao['Tipo Maquina']}>{manutencao['Tipo Maquina']}</th>
-                          <th>Manutenções em Aberto</th>
-                          <th id={manutencao['Data']}>{manutencao['Data']}</th>
-                          <th id={manutencao['Quem Abriu']}>{manutencao['Quem Abriu']}</th>
+                            id={manutencao.ID_MANUTENCAO}>PDS</td>
+                          <td id={manutencao.ID_VEICULO}>{manutencao['Frota']}</td>
+                          <td id={manutencao['Tipo Maquina']}>{manutencao['Tipo Maquina']}</td>
+                          <td>Chamado</td>
+                          <td id={manutencao['Data']}>{manutencao['Data']}</td>
+                          <td id={manutencao['Quem Abriu']}>{manutencao['Quem Abriu']}</td>
                         </tr> : ''
                     );
                   })

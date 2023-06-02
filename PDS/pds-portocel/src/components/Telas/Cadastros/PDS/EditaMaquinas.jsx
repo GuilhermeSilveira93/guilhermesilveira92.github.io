@@ -68,6 +68,7 @@ export default class EditaMaquinas extends Component {
             }
           }).then((resposta) => {
             alert('Dados inseridos com sucesso')
+            this.props.fecharPDS()
           })
           .catch((error) => alert(error) + console.log(this.state.controladorDeCargas));
       } else {
@@ -121,28 +122,23 @@ export default class EditaMaquinas extends Component {
             <fieldset>
               <legend>Configurações da Manutenção</legend>
               <form action="post">
-                <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">CONTROLADOR DE CARGAS
-                  :</label>
+                <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">CONTROLADOR DE CARGAS: </label>
                 <input type="text" required name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} /><br />
 
-                <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">OPERADOR TPA
-                  :</label>
+                <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">OPERADOR TPA: </label>
                 <input type="text" required name="operadorTPA" id="operadorTPA" onChange={(e) => this.setState({ operadorTPA: e.target.value })}></input>
 
-                <label htmlFor="portoCel" required name="portoCel" id="portoCel">PORTOCEL
-                  :</label>
+                <label htmlFor="portoCel" required name="portoCel" id="portoCel">PORTOCEL: </label>
                 <input type="text" required name="portoCel" id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} />
 
-                <label htmlFor="jsl" name="jsl" id="jsl">JSL
-                  :</label>
+                <label htmlFor="jsl" name="jsl" id="jsl">JSL: </label>
                 <input type="text" required name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
 
-                <label htmlFor="cracha" name="cracha" id="cracha">Cracha : {cracha}</label>
+                <label htmlFor="cracha" name="cracha" id="cracha">Cracha: {cracha}</label>
 
-                <label htmlFor="Frota" name="Frota" id="Frota">Frota : {frota}</label>
+                <label htmlFor="Frota" name="Frota" id="Frota">Frota: {frota}</label>
 
-                <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">HORÍMETRO
-                  :</label>
+                <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">HORÍMETRO: </label>
                 <input type="number" required name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} />
 
                 <label htmlFor="Data" name="Data" id="Data">DATA: {data}</label>
