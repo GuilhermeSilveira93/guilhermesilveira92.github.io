@@ -43,7 +43,7 @@ export default class EditaMaquinas extends Component {
 
   getForm(e) {
     e.preventDefault()
-    const { id_tipo_intervencao, idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes } = this.state
+    const { idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes } = this.state
     const codigo = document.getElementsByName('codigo')
     let novosCodigos = []
     codigo.forEach(valores => {
