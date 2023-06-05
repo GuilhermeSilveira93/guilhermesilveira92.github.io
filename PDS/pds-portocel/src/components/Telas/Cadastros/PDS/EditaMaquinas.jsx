@@ -153,7 +153,11 @@ export default class EditaMaquinas extends Component {
                 <label htmlFor="Frota" name="Frota" id="Frota">FROTA: {frota}</label>
 
                 <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">*HORÍMETRO: </label>
-                <input type="number" name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} />
+                <input type="number" name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} onKeyDown={(e) => {
+        if (!/[0-9]/.test(e.key)) {
+          e.preventDefault();
+        }
+      }} />
 
                 <label htmlFor="Data" name="Data" id="Data">DATA DA MANUTENÇÃO: {data}</label>
                 <label htmlFor="DataAtual" name="DataAtual" id="DataAtual">DATA PDS: {dia}/{mes}/{date.getFullYear()}</label>
