@@ -61,15 +61,8 @@ export default class EditaMaquinas extends Component {
       },
       () => {
         const { id_tipo_intervencao } = this.state;
-        if (          id_tipo_intervencao.length > 0 &&
-          idManutencao.length > 0 &&
-          controladorDeCargas.length > 0 &&
-          operadorTPA.length > 0 &&
-          portoCel.length > 0 &&
-          jsl.length > 0 &&
-          horimetro.length > 0 &&
-          anotacoes.length > 0
-        ) {
+        if (id_tipo_intervencao.length > 0 && idManutencao.length > 0 && controladorDeCargas.length > 0 && operadorTPA.length > 0 &&
+          portoCel.length > 0 && jsl.length > 0 && horimetro.length > 0 && anotacoes.length > 0) {
           api
             .post("/registrarntervencao.json", {
               params: {
@@ -144,27 +137,26 @@ export default class EditaMaquinas extends Component {
             <h2>Pedido de Serviço - PDS</h2>
               <form action="post">
                 <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">*CONTROLADOR DE CARGAS: </label>
-                <input type="text" name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} required /><br />
+                <input type="text" name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} /><br />
 
                 <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">*OPERADOR TPA: </label>
-                <input type="text" name="operadorTPA" id="operadorTPA" onChange={(e) => this.setState({ operadorTPA: e.target.value })} required />
+                <input type="text" name="operadorTPA" id="operadorTPA" onChange={(e) => this.setState({ operadorTPA: e.target.value })} />
 
                 <label htmlFor="portoCel" name="portoCel" id="portoCel">*PORTOCEL: </label>
-                <input type="text" name="portoCel" id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} required />
+                <input type="text" name="portoCel" id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} />
 
                 <label htmlFor="jsl" name="jsl" id="jsl">*JSL: </label>
-                <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} required /><br />
+                <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
 
                 <label htmlFor="cracha" name="cracha" id="cracha">CRACHA: {cracha}</label>
 
                 <label htmlFor="Frota" name="Frota" id="Frota">FROTA: {frota}</label>
 
                 <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">*HORÍMETRO: </label>
-                <input type="number" name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} required />
+                <input type="number" name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} />
 
                 <label htmlFor="Data" name="Data" id="Data">DATA DA MANUTENÇÃO: {data}</label>
                 <label htmlFor="DataAtual" name="DataAtual" id="DataAtual">DATA PDS: {dia}/{mes}/{date.getFullYear()}</label>
-                <button type="submit" onClick={this.getForm}>Enviar</button>
               </form>
             <div id="tipoIntervencao">
               <table>
@@ -191,8 +183,10 @@ export default class EditaMaquinas extends Component {
               <label htmlFor="anotacoes">Serviço a Executar</label>
               <label htmlFor="anotacoes" style={{ float: 'right' }}>{anotacoes.length}/500 caracteres</label>
               <textarea maxLength={500} name="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
+              <button id="voltar" onClick={() => fecharPDS()}>Voltar</button>
+              <button type="submit" onClick={this.getForm}>Enviar</button>
             </div>
-            <button id="voltar" onClick={() => fecharPDS()}>Voltar</button>
+            
           </div>
         </main >
       </>

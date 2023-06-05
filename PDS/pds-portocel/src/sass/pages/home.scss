@@ -187,7 +187,7 @@
     width: 100%;
     margin: 0 auto;
     overflow: auto;
-    max-height: calc(100vh - 60px);
+    height: calc(96vh - 64px);
     form {
       padding: 0px 0px 5px 15px;
       input {
@@ -249,28 +249,27 @@
 
     #anotacoes {
       padding: 5px 0px 0px 0px;
-
+      position: relative;
       textarea {
         width: 100%;
         height: 60px;
         max-height: 150px;
       }
-    }
-
-    button {
-      position: absolute;
-      padding: .2em 1em;
-      font-size: 10px;
-      bottom: 0px;
-      right: 20px;
-      padding: 0.3em 1.7em;
-      cursor: pointer;
-      font-family: Verdana, Arial, Helvetica, sans-serif;
-      border: 1px solid #b2c7d7;
-      border-radius: 2px;
-    }
-
-    #voltar {
-      right: 100px;
+      button {
+        position: absolute;
+        padding: .2em 1em;
+        font-size: 10px;
+        bottom: -20px;
+        right: 0px;
+        padding: 0.3em 1.7em;
+        cursor: pointer;
+        font-family: Verdana, Arial, Helvetica, sans-serif;
+        border: 1px solid #b2c7d7;
+        border-radius: 2px;
+      }
+  
+      #voltar {
+        right: 80px;
+      }
     }
   }
