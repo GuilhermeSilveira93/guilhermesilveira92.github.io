@@ -5,15 +5,17 @@ const {
 module.exports = {
   async manutencaoAberta() {
     const resultado = await knex.raw(`
-        select distinct ma.ID_MANUTENCAO,ma.ID_VEICULO,ma.ID_MOTORISTA_INCLUSAO,vei.s_numero_frota "Frota",tras.s_nome "Tipo Maquina", to_char(ma.D_INICIO,'DD/MM/YYYY HH:MM:SS') "Data", mot.s_nome "Quem Abriu"
-        from vw_manutencao ma, st_motorista mot, st_veiculo vei, st_tipo_rastreado tras
-        where ma.s_aberta = 'S'
-        and ma.id_tipo_manutencao = 3
-        and ma.id_motorista_inclusao = mot.id_motorista
-        and ma.ID_VEICULO = vei.id_veiculo
-        and vei.id_tipo_rastreado = tras.id_tipo_rastreado
-        and ma.id_manutencao not in (select id_manutencao from st_pds)
+    select distinct ma.ID_MANUTENCAO,ma.ID_VEICULO,ma.ID_MOTORISTA_INCLUSAO,vei.s_numero_frota "Frota",tras.s_nome "Tipo Maquina", to_char(ma.D_INICIO,'DD/MM/YYYY HH:MM:SS') "Data", mot.s_nome "Quem Abriu", ib.s_codigo "CRACHA"
+    from vw_manutencao ma, st_motorista mot, st_veiculo vei, st_tipo_rastreado tras,st_ibutton ib, st_ibutton_motorista ibmot
+    where ma.s_aberta = 'S'
+    and ma.id_motorista_inclusao = mot.id_motorista
+    and ibmot.id_motorista = mot.id_motorista
+    and ibmot.id_ibutton = ib.id_ibutton
+    and ma.ID_VEICULO = vei.id_veiculo
+    and vei.id_tipo_rastreado = tras.id_tipo_rastreado
+    and ma.id_manutencao not in (select id_manutencao from st_pds)
     `);
+    //and ma.id_tipo_manutencao = 3
     return resultado
   },
   async tipoIntervencao() {

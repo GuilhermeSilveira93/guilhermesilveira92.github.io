@@ -18,6 +18,7 @@ export default class ManutencoesAberto extends Component {
   componentDidMount() {
     api
       .get('manutencoes_abertas.json').then((resposta) => {
+        console.log(resposta.data)
         this.setState({ manutencoesAbertas: resposta.data });
       })
       .catch((error) => console.log(error));
@@ -53,7 +54,7 @@ export default class ManutencoesAberto extends Component {
                       manutencao.S_NOME !== 'Sem Operador' ?
                         <tr key={manutencao.ID_MANUTENCAO} id={manutencao.ID_MANUTENCAO}>
                           <td onClick={
-                            () => exibirPDS(manutencao.ID_MANUTENCAO, manutencao['Frota'], manutencao['Quem Abriu'], manutencao['Data'], manutencao.ID_TIPO_INTERVENCAO)}
+                            () => exibirPDS(manutencao.ID_MANUTENCAO, manutencao['Frota'], manutencao['Quem Abriu'], manutencao['Data'], manutencao.CRACHA)}
                             style={{ cursor: 'pointer' }}
                             id={manutencao.ID_MANUTENCAO}>PDS</td>
                           <td id={manutencao.ID_VEICULO}>{manutencao['Frota']}</td>

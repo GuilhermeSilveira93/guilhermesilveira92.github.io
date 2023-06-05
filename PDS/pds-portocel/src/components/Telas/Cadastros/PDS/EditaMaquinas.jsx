@@ -158,7 +158,7 @@ export default class EditaMaquinas extends Component {
                 <label htmlFor="jsl" name="jsl" id="jsl">*JSL: </label>
                 <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
 
-                <label htmlFor="cracha" name="cracha" id="cracha">SOLICITANTE: </label>
+                <label htmlFor="cracha" name="cracha" id="cracha">SOLICITANTE: {this.props.numeroCracha}</label>
                 <input type="text" htmlFor='cracha'id='cracha' value={cracha} onChange={(e)=> this.setState({cracha: e.target.value})}/>
 
                 <label htmlFor="Frota" name="Frota" id="Frota">FROTA: {frota}</label>

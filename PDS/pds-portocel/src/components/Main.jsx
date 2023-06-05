@@ -9,16 +9,18 @@ export default class Main extends Component {
       idManutencao: 0,
       frota: '',
       cracha: '',
+      numeroCracha:'',
       data: '',
     }
     this.exibirPDS = this.exibirPDS.bind(this)
     this.fecharPDS = this.fecharPDS.bind(this)
   }
-  exibirPDS(idManutencao, frota, cracha, data) {
+  exibirPDS(idManutencao, frota, cracha, data,numeroCracha) {
     this.setState({
       idManutencao: idManutencao,
       frota: frota,
       cracha: cracha,
+      numeroCracha: numeroCracha,
       data: data,
       paginaPDS: true
     })
@@ -27,9 +29,9 @@ export default class Main extends Component {
     this.setState({ paginaPDS: false })
   }
   render() {
-    const {idManutencao,frota,cracha,data} = this.state
+    const {idManutencao,frota,cracha,data,numeroCracha} = this.state
     return (
-      this.state.paginaPDS ? <EditaMaquinas idManutencao={idManutencao} frota={frota} cracha={cracha} data={data} fecharPDS={this.fecharPDS}/> : <ManutencoesAberto exibirPDS={this.exibirPDS} />
+      this.state.paginaPDS ? <EditaMaquinas numeroCracha={numeroCracha} idManutencao={idManutencao} frota={frota} cracha={cracha} data={data} fecharPDS={this.fecharPDS}/> : <ManutencoesAberto exibirPDS={this.exibirPDS} />
     );
   }
 }
