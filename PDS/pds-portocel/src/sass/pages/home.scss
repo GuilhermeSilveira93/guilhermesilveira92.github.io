@@ -116,6 +116,7 @@
     width: 100%;
     height: calc(100vh - 60px);
     padding: 15px;
+    overflow: auto;
   }
 
   #Tabela {
@@ -185,7 +186,8 @@
     padding: 5px 10px 25px;
     width: 100%;
     margin: 0 auto;
-
+    overflow: auto;
+    max-height: calc(100vh - 60px);
     form {
       padding: 0px 0px 5px 15px;
       input {
