@@ -47,7 +47,7 @@ export default class EditaMaquinas extends Component {
 
   getForm(e) {
     e.preventDefault();
-    const { idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes } = this.state;
+    const { idManutencao, controladorDeCargas, operadorTPA, portoCel, jsl, horimetro, anotacoes,cracha } = this.state;
     const codigo = document.getElementsByName("codigo");
     let novosCodigos = [];
     codigo.forEach((valores) => {
@@ -74,6 +74,7 @@ export default class EditaMaquinas extends Component {
                 jsl: jsl,
                 horimetro: horimetro,
                 aexecutar: anotacoes,
+                cracha:cracha
               },
             })
             .then((resposta) => {
@@ -157,7 +158,8 @@ export default class EditaMaquinas extends Component {
                 <label htmlFor="jsl" name="jsl" id="jsl">*JSL: </label>
                 <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
 
-                <label htmlFor="cracha" name="cracha" id="cracha">CRACHA: {cracha}</label>
+                <label htmlFor="cracha" name="cracha" id="cracha">SOLICITANTE: </label>
+                <input type="text" htmlFor='cracha'id='cracha' value={cracha} onChange={(e)=> this.setState({cracha: e.target.value})}/>
 
                 <label htmlFor="Frota" name="Frota" id="Frota">FROTA: {frota}</label>
 

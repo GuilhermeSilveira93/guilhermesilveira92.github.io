@@ -22,14 +22,14 @@ module.exports = {
     `)
     return resultado
   },
-  async enviarPDS(id_tipo_intervencao, idManutencao, controlador, operadorTPA, portocel, jsl, horimetro, aexecutar) {
+  async enviarPDS(id_tipo_intervencao, idManutencao, controlador, operadorTPA, portocel, jsl, horimetro, aexecutar,cracha) {
     await knex.transaction(async knex => {
       await knex.raw(`
         insert into st_pds(id_pds,id_manutencao,n_codigo_pds,s_controlador_carga,s_operador_tpa,s_portocel,
-          s_jsl,n_horimetro,d_data_abertura,s_servico_solicitacao)
+          s_jsl,n_horimetro,s_solicitante,d_data_abertura,s_servico_solicitacao)
           values
           (seq_stpds.nextval,${idManutencao},seq_stpds.currval,'${controlador}','${operadorTPA}','${portocel}',
-            '${jsl}',${horimetro},sysdate,'${aexecutar}')
+            '${jsl}',${horimetro},'${cracha}',sysdate,'${aexecutar}')
             `);
       await knex.raw(`
       insert into st_pds_tipo_intervencao(id_pds_tipo_intervencao,id_pds,id_tipo_intervencao)
