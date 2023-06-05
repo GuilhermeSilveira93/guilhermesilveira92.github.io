@@ -8,6 +8,7 @@
   html,
   body {
     font: normal normal normal 12px/1.5 Verdana, Arial, Sans-Serif;
+    background-color: #e1ecf4;  
   }
 
   #fundo {
@@ -114,8 +115,7 @@
   main {
     width: 100%;
     height: calc(100vh - 60px);
-    background-color: #e1ecf4;
-    padding: 20px;
+    padding: 15px;
   }
 
   #Tabela {
@@ -186,15 +186,13 @@
     width: 100%;
     margin: 0 auto;
 
-    fieldset {
-      padding: 10px 0px 15px 15px;
-
-      legend {
-        padding: 0px 10px
-      }
-
+    form {
+      padding: 0px 0px 5px 15px;
       input {
         margin: 10px 37px 5px 0px;
+      }
+      #DataAtual{
+        margin-left: 20px;
       }
 
       #cracha,
@@ -248,7 +246,6 @@
     }
 
     #anotacoes {
-      margin: 10px 0px 0px 0px;
       padding: 5px 0px 0px 0px;
 
       textarea {

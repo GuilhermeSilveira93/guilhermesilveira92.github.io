@@ -97,6 +97,11 @@ export default class EditaMaquinas extends Component {
     );
   }
   render() {
+    let date = new Date()
+    let dia = date.getDate()
+    let mes = date.getMonth() + 1
+    dia = (dia<10 ? '0' : '') + dia
+    mes = (mes<10 ? '0' : '') + mes
     const { tipoIntervencao, frota, cracha, data, mensagem, anotacoes,titulo,paragrafo1,paragrafo2,idMensagem } = this.state
     const { fecharPDS } = this.props
     let linhas = []
@@ -137,8 +142,6 @@ export default class EditaMaquinas extends Component {
         <main>
           <div id="content">
             <h2>Pedido de Serviço - PDS</h2>
-            <fieldset>
-              <legend>Configurações da Manutenção</legend>
               <form action="post">
                 <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">*CONTROLADOR DE CARGAS: </label>
                 <input type="text" name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} required /><br />
@@ -152,17 +155,17 @@ export default class EditaMaquinas extends Component {
                 <label htmlFor="jsl" name="jsl" id="jsl">*JSL: </label>
                 <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} required /><br />
 
-                <label htmlFor="cracha" name="cracha" id="cracha">Cracha: {cracha}</label>
+                <label htmlFor="cracha" name="cracha" id="cracha">CRACHA: {cracha}</label>
 
-                <label htmlFor="Frota" name="Frota" id="Frota">Frota: {frota}</label>
+                <label htmlFor="Frota" name="Frota" id="Frota">FROTA: {frota}</label>
 
                 <label htmlFor="Horimetro" name="Horimetro" id="Horimetro">*HORÍMETRO: </label>
                 <input type="number" name="Horimetro" id="Horimetro" onChange={(e) => this.setState({ horimetro: e.target.value })} required />
 
-                <label htmlFor="Data" name="Data" id="Data">DATA: {data}</label>
+                <label htmlFor="Data" name="Data" id="Data">DATA DA MANUTENÇÃO: {data}</label>
+                <label htmlFor="DataAtual" name="DataAtual" id="DataAtual">DATA PDS: {dia}/{mes}/{date.getFullYear()}</label>
                 <button type="submit" onClick={this.getForm}>Enviar</button>
               </form>
-            </fieldset>
             <div id="tipoIntervencao">
               <table>
                 <thead>

@@ -10,6 +10,7 @@
 html,
 body {
   font: normal normal normal 12px/1.5 Verdana, Arial, Sans-Serif;
+  background-color: #e1ecf4;
 }
 
 #fundo {
@@ -107,8 +108,7 @@ header img {
 main {
   width: 100%;
   height: calc(100vh - 60px);
-  background-color: #e1ecf4;
-  padding: 20px;
+  padding: 15px;
 }
 
 #Tabela {
@@ -167,17 +167,17 @@ main {
   width: 100%;
   margin: 0 auto;
 }
-#content fieldset {
-  padding: 10px 0px 15px 15px;
+#content form {
+  padding: 0px 0px 5px 15px;
 }
-#content fieldset legend {
-  padding: 0px 10px;
-}
-#content fieldset input {
+#content form input {
   margin: 10px 37px 5px 0px;
 }
-#content fieldset #cracha,
-#content fieldset #Frota {
+#content form #DataAtual {
+  margin-left: 20px;
+}
+#content form #cracha,
+#content form #Frota {
   margin: 0px 25px 1px 0px;
 }
 #content #tipoIntervencao table {
@@ -210,7 +210,6 @@ main {
   background-color: #f7f7f7;
 }
 #content #anotacoes {
-  margin: 10px 0px 0px 0px;
   padding: 5px 0px 0px 0px;
 }
 #content #anotacoes textarea {
