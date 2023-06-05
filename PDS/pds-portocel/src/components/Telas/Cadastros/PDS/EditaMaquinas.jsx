@@ -77,14 +77,23 @@ export default class EditaMaquinas extends Component {
               },
             })
             .then((resposta) => {
-              this.setState({ mensagem: true,idMensagem:'mensagemNormal',titulo:'Sucesso',paragrafo1:'Dados Enviados com Sucesso !',paragrafo2:''});
+              this.setState({ mensagem: true,
+                              idMensagem:'mensagemNormal',
+                              titulo:'Sucesso',
+                              paragrafo1:'Dados Enviados com Sucesso !',
+                              paragrafo2:''
+                            });
             })
             .catch((error) => {
-              alert(error);
-              console.log(controladorDeCargas);
+              console.log(error);
             });
         } else {
-          this.setState({ mensagem: true,idMensagem:'mensagemErro' , titulo:'Erro',paragrafo1:'Por favor, verifique se todos os campos foram preenchidos.',paragrafo2:'Campos com ( * ) são obrigatórios'});
+          this.setState({ mensagem: true,
+                          idMensagem:'mensagemErro',
+                          titulo:'Erro',
+                          paragrafo1:'Por favor, verifique se todos os campos foram preenchidos.',
+                          paragrafo2:'Campos com ( * ) são obrigatórios'
+                        });
         }
       }
     );
@@ -184,7 +193,7 @@ export default class EditaMaquinas extends Component {
               </table>
             </div>
             <div id="anotacoes">
-              <label htmlFor="anotacoes">Serviço a Executar</label>
+              <label htmlFor="anotacoes">*Serviço a Executar</label>
               <label htmlFor="anotacoes" style={{ float: 'right' }}>{anotacoes.length}/500 caracteres</label>
               <textarea maxLength={500} name="anotacoes" cols="100" rows="10" style={{ resize: 'none' }} onChange={(e) => this.setState({ anotacoes: e.target.value })}></textarea>
               <button id="voltar" onClick={() => fecharPDS()}>Voltar</button>
