@@ -147,19 +147,19 @@ export default class EditaMaquinas extends Component {
             <h2>Pedido de Serviço - PDS</h2>
               <form action="post">
                 <label htmlFor="controladorDeCargas" name="controladorDeCargas" id="controladorDeCargas">*CONTROLADOR DE CARGAS: </label>
-                <input type="text" name="controladorDeCargas" id="controladorDeCargas" style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} /><br />
+                <input type="text" name="controladorDeCargas" id="controladorDeCargas" maxLength={100} style={{ width: '72.2%' }} onChange={(e) => this.setState({ controladorDeCargas: e.target.value })} /><br />
 
                 <label htmlFor="operadorTPA" name="operadorTPA" id="operadorTPA">*OPERADOR TPA: </label>
-                <input type="text" name="operadorTPA" id="operadorTPA" onChange={(e) => this.setState({ operadorTPA: e.target.value })} />
+                <input type="text" name="operadorTPA" id="operadorTPA" maxLength={100} onChange={(e) => this.setState({ operadorTPA: e.target.value })} />
 
                 <label htmlFor="portoCel" name="portoCel" id="portoCel">*PORTOCEL: </label>
-                <input type="text" name="portoCel" id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} />
+                <input type="text" name="portoCel" maxLength={100} id="portoCel" onChange={(e) => this.setState({ portoCel: e.target.value })} />
 
                 <label htmlFor="jsl" name="jsl" id="jsl">*JSL: </label>
-                <input type="text" name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
+                <input type="text" maxLength={100} name="jsl" id="jsl" onChange={(e) => this.setState({ jsl: e.target.value })} /><br />
 
-                <label htmlFor="cracha" name="cracha" id="cracha">SOLICITANTE: {this.props.numeroCracha}</label>
-                <input type="text" htmlFor='cracha'id='cracha' value={cracha} onChange={(e)=> this.setState({cracha: e.target.value})}/>
+                <label htmlFor="cracha" name="cracha" id="cracha">NOME DO SOLICITANTE PDS: </label>
+                <input type="text" maxLength={100} htmlFor='cracha'id='cracha' value={cracha} placeholder="Digite seu Nome" onChange={(e)=> this.setState({cracha: e.target.value})}/>
 
                 <label htmlFor="Frota" name="Frota" id="Frota">FROTA: {frota}</label>
 
