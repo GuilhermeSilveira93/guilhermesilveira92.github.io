@@ -14,8 +14,8 @@ module.exports = {
     and ma.ID_VEICULO = vei.id_veiculo
     and vei.id_tipo_rastreado = tras.id_tipo_rastreado
     and ma.id_manutencao not in (select id_manutencao from st_pds)
+    and ma.id_tipo_manutencao = 3
     `);
-    //and ma.id_tipo_manutencao = 3
     return resultado
   },
   async tipoIntervencao() {
