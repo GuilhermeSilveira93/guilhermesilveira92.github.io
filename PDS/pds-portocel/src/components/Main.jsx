@@ -28,6 +28,7 @@ export default class Main extends Component {
   fecharPDS() {
     this.setState({ paginaPDS: false })
   }
+
   render() {
     const {idManutencao,frota,cracha,data,numeroCracha} = this.state
     return (
