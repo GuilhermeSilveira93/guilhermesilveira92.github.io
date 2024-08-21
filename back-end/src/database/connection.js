@@ -6,10 +6,9 @@ module.exports = {
   conexao1: {
     client: 'oracledb',
     connection: {
-      host: 'localhost:1522/softdb',
+      connectString: 'localhost:1522/softdb',
       user: 'SFWSTPORTOCEL',
       password: 'SFWSTPORTOCEL',
-      database: 'softdb'
     },
     pool: {
       min: 0,
