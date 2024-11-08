@@ -8,6 +8,7 @@ const path = require('path')//ajuda a mostrar para o express, onde colocaremos a
 app.use(rotas)//vamos colocar as rotas aqui, para não bagunçar
 
 app.use(express.static(path.join(__dirname,'build')))//aqui ficarão os arquivos estaticos
+
 /* CASO VENHA USAR EJS NOVAMENTE DEFINIMOS ONDE ELE PEGA AS VIEWS*/
 app.set('views', path.join(__dirname, 'src/views'))//vamos setar o caminho das views, passando pra ele o path.join para juntar as rotas, primeiro parametro é o diretorio atual, do app.js no caso: __dirname, em seguida a pasta
 
